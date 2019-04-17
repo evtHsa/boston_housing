@@ -12440,6 +12440,22 @@ A4) I'm at a loss as to how to expand upon A3 for this</p>
 <p><strong>Answer: </strong></p>
 <p>a) the <em>training</em> data is shuffled randomly and then split into k evenly sized sets. for each point in the hyper parameter space, one of the sets is used for validation and the rest for training. (I regrettably omitted the word training in the original answer)</p>
 <p>b) more models can be trained and evaluated with less data. I would suspect repeatedly permuting the data and doing an 80 20 split would achieve a similar result.</p>
+<h1 id="Answer-Take-3:">Answer Take 3:<a class="anchor-link" href="#Answer-Take-3:">&#182;</a></h1><p>Please be assured that not only did I read the reviewer supplied materials, I sought others.</p>
+<p>Utilizing two screen shots from another udacity video (<a href="https://www.youtube.com/watch?v=TIgfjmp-4BA">https://www.youtube.com/watch?v=TIgfjmp-4BA</a>). I can see and hear from Sebastian's(I assume it's him from the comforting german accent) that I was imprecise in my answer. I'll try to summon my best english and still be concise.</p>
+<p><img src="attachment:kfcv0.png" alt="kfcv0.png"></p>
+<p>In this slide the presenter describes that the usual train/test split puts in tension the two goals of
+having as much data as possible to get the weights right and having as large a test set as possible
+to adequately demonstrate that it generalizes well to unseen data.</p>
+<p><img src="attachment:kfcv2.png" alt="kfcv2.png"></p>
+<p>I'll let the slide speak for itself except to explicitly note that k being the number of bins implies that the number of elements per bin is N / k. If N is not divisible by k, then either the data beyond the last full k sized bin must be discarded or the bin filled, for example as we did in the Traffic Sign Classifier assignment by taking a random sample of data(assuming they're images) and altering the images to create "new" data so that k does divide N + <new></p>
+<p>As the presenter states "instead of taking just one bin as the test set you run k separate learning experiments".
+So, if we interpret <n> below as the bin number, and K = 5(numbering from 1), we would have</p>
+<p>run 1: test = 1, training = [2, 5]
+run 2: test = 2, training = [1, 3-5]
+run 3: test = 3, training = [1,2,4,5]
+run 4: test = 4, training = [1-3, 5]
+run 5: test = 5, training = [1 - 4]</p>
+<p>then we average the test results</p>
 
 </div>
 </div>
